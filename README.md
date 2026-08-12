@@ -1,30 +1,60 @@
-# Simple Notes App for TWS Community
-This is a simple notes app built with React and Django.
+# Dockerized Django Application – AWS EC2
 
-## Requirements
-1. Python 3.9
-2. Node.js
-3. React
+A Django web application containerized and deployed on AWS EC2 using Docker Compose, Nginx and MySQL.
 
-## Installation
-1. Clone the repository
-```
-git clone https://github.com/LondheShubham153/django-notes-app.git
-```
+## Technologies Used
 
-2. Build the app
-```
-docker build -t notes-app .
-```
+- Django
+- Python
+- Docker
+- Docker Compose
+- Nginx
+- MySQL
+- AWS EC2
+- Linux
+- Git & GitHub
 
-3. Run the app
-```
-docker run -d -p 8000:8000 notes-app:latest
-```
+## Deployment Architecture
 
-## Nginx
+User
+↓
+Nginx
+↓
+Django Application
+↓
+MySQL
 
-Install Nginx reverse proxy to make this application available
+## Docker Containers
 
-`sudo apt-get update`
-`sudo apt install nginx`
+The application uses separate containers for:
+
+- Django application
+- Nginx
+- MySQL
+
+## Deployment
+
+The application was deployed on an AWS EC2 instance using Docker Compose.
+
+Nginx was configured as a reverse proxy to forward incoming HTTP requests to the Django application.
+
+## Application Screenshots
+
+### My Notes Application
+
+![My Notes Application](adding%20notes.jpeg)
+
+### Final Application
+
+![Final Application](final%20notes.jpeg)
+
+## Project Highlights
+
+- Containerized Django application using Docker
+- Configured Docker Compose for multi-container deployment
+- Configured Nginx as a reverse proxy
+- Connected Django application with MySQL
+- Deployed application on AWS EC2
+- Configured Linux server environment
+- Verified application using browser and curl
+
