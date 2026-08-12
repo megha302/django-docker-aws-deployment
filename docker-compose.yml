@@ -20,14 +20,14 @@ services:
     container_name: "django_cont"
     ports:
       - "8000:8000"
-    command: sh -c "python manage.py migrate --noinput && gunicorn notesapp.wsgi --bind 0.0.0.0:8000"
+    command: sh -c "python manage.py migrate --noinput && gunicorn notesapp.wsgi --bind 0.0.0.0:8000 --workers 3 --timeout 120"
     env_file:
       - ".env"
     depends_on:
       - db
     restart: always
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8000/admin || exit 1"]
+      test: ["CMD-SHELL", "python -c \"import socket; s=socket.create_connection(('127.0.0.1',8000),5); s.close()\""]
       interval: 10s
       timeout: 5s
       retries: 5
